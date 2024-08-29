@@ -1,40 +1,10 @@
-import express from "express";
-const app = express();
-const PORT = 5000;
+import {app} from './app.js'
+import { dbConnect } from './data/database.js';
 
-
-app.get("/", (req, res) => {
-  try {
-    res.send("welcome")
-   
-  } catch (error) {
-    console.log(error)
-  }
-});
+dbConnect()
 
 
 
-app.get("/hello", (req, res) => {
-    try {
-      if (req.url == "/hello") {
-        res.status(200).json({
-          status: true,
-          statusCode: 200,
-          message: "yeah searver is started",
-        });
-      } else {
-        res.status(200).json({
-          status: false,
-          statusCode: 402,
-          message: "O0ps searver is started",
-        });
-      }
-    } catch (error) {
-        console.log(error)
-    }
-  });
-
-
-app.listen(PORT, () => {
-  console.log(`server started ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`server started ${process.env.PORT}`);
 });
