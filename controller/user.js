@@ -3,13 +3,14 @@ import { user } from "../models/user.js";
 import { generateToken } from "../utils/feature.js";
 
 export const getUser = async (req, res) => {
+ 
   try {
-    const data = await user.findOne({});
+    const data = await user.find({});
     res.status(200).json({
       status: true,
       statusCode: 200,
       message: "get user SucessFully!",
-      data,
+      data:req.user
     });
   } catch (error) {
     console.log(error);
