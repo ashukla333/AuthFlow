@@ -10,7 +10,7 @@ configDotenv({
 
 app.use(
   cors({
-    origin: ["https://kigsvillah.vercel.app", "http://localhost:3000"],
+    origin: ["https://blog-mern-nu-one.vercel.app/", "http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
